@@ -14,8 +14,8 @@
 Safe devices, screen time, routines, and kid-safe AI.
 
 - KidsHome (available): Android kids launcher for phones/tablets and Amazon Fire.
-  Repo: https://github.com/marcelsavegnago/KidsHome
-  Download: https://github.com/marcelsavegnago/KidsHome/releases/latest
+  Repo: https://github.com/appstudio42/KidsHome
+  Download: https://github.com/appstudio42/KidsHome/releases/latest
 - Planned: KidsHome TV, kid-safe AI assistant, visual routines app, Fire tablet setup kit.
 
 ## Principles
