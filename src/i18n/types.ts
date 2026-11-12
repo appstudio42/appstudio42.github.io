@@ -23,6 +23,7 @@ export interface AppCopy {
   ctaRepo: string;
   upcomingLabel: string;
   modesLabel: string;
+  setupCaption?: string;
 }
 
 export interface RoadmapCopy {

@@ -2,9 +2,9 @@ import type { SiteContent } from "./types";
 
 export const ptBR: SiteContent = {
   meta: {
-    title: "App Studio 42 — apps open source sem rastreamento",
+    title: "App Studio 42 — apps de código aberto sem rastreamento",
     description:
-      "App Studio 42 faz apps open source sem anúncios e sem rastreamento. Começamos pela linha Family: KidsHome e apps seguros para crianças e famílias.",
+      "App Studio 42 faz apps de código aberto sem anúncios e sem rastreamento. Começamos pela linha Família: KidsHome e apps seguros para crianças e famílias.",
     ogLocale: "pt_BR",
   },
   a11y: {
@@ -26,9 +26,9 @@ export const ptBR: SiteContent = {
   ],
   hero: {
     brand: "App Studio 42",
-    title: "Apps open source.\nSem rastreamento.\nPara a vida real.",
+    title: "Código aberto.\nSem rastreamento.\nPara a vida real.",
     tagline:
-      "Um estúdio open source de apps para o dia a dia — sem anúncios, sem analytics, com código que você pode auditar.",
+      "Um estúdio de apps de código aberto para o dia a dia — sem anúncios, sem analytics, com código que você pode auditar.",
     ctaPrimary: "Conhecer KidsHome",
     ctaSecondary: "Ver no GitHub",
   },
@@ -41,13 +41,13 @@ export const ptBR: SiteContent = {
     items: [
       {
         id: "open-source",
-        title: "Open source",
-        text: "Código público, licenças claras e contribuições bem-vindas. Você pode ler, fork e auditar.",
+        title: "Código aberto",
+        text: "Código público, licenças claras e contribuições bem-vindas. Você pode ler, modificar e auditar.",
       },
       {
         id: "privacy",
         title: "Privacidade primeiro",
-        text: "Dados offline e locais quando possível. Sem analytics, sem trackers, sem telemetria escondida.",
+        text: "Dados offline e locais quando possível. Sem analytics, sem rastreadores, sem telemetria escondida.",
       },
       {
         id: "free",
@@ -56,8 +56,8 @@ export const ptBR: SiteContent = {
       },
       {
         id: "distribute",
-        title: "Releases e, em breve, F-Droid",
-        text: "Baixe pelos GitHub Releases hoje. Estamos preparando a publicação no F-Droid.",
+        title: "Lançamentos e, em breve, F-Droid",
+        text: "Baixe pelos lançamentos do GitHub hoje. Estamos preparando a publicação no F-Droid.",
       },
     ],
   },
@@ -66,12 +66,12 @@ export const ptBR: SiteContent = {
     eyebrow: "Linhas de produto",
     title: "Começamos pela família. Outras linhas vêm depois.",
     subtitle:
-      "Cada linha agrupa apps com o mesmo público. Family é a primeira; Utilities e Productivity virão a seguir.",
+      "Cada linha agrupa apps com o mesmo público. Família é a primeira; Utilitários e Produtividade virão a seguir.",
     availableLabel: "Disponível",
-    plannedLabel: "No roadmap",
+    plannedLabel: "Planejado",
     catalog: {
       family: {
-        name: "Family",
+        name: "Família",
         tagline: "Crianças e família",
         description:
           "Dispositivos seguros, tempo de tela, rotinas e IA adequada à idade — com os pais no controle.",
@@ -118,11 +118,12 @@ export const ptBR: SiteContent = {
             },
             ctaDownload: "Baixar APK",
             ctaRepo: "Ver repositório",
-            upcomingLabel: "Chegando no 1.4.0",
+            upcomingLabel: "Chegando na 1.4.0",
             modesLabel: "Modos de proteção",
+            setupCaption: "Fluxo de configuração — PIN, apps, tempo de tela e modo criança",
           },
         },
-        roadmapTitle: "Em seguida na Family",
+        roadmapTitle: "Em breve na linha Família",
         roadmapHint: "Planejado — ainda não disponível",
         roadmap: {
           "kidshome-tv": {
@@ -138,7 +139,7 @@ export const ptBR: SiteContent = {
             text: "App visual de rotinas diárias com recompensas em estrelas.",
           },
           "fire-setup-kit": {
-            title: "Kit de setup Fire",
+            title: "Kit de configuração Fire",
             text: "Guia e ferramentas para preparar tablets Fire em minutos.",
           },
         },
@@ -147,11 +148,11 @@ export const ptBR: SiteContent = {
   },
   sisters: {
     eyebrow: "Família 42",
-    title: "Três estúdios, o mesmo espírito open source.",
+    title: "Três estúdios, o mesmo espírito de código aberto.",
     subtitle: "App Studio 42 faz apps para o dia a dia. As irmãs cobrem jogos e engenharia B2B.",
     items: {
       gamestudio42: {
-        blurb: "Jogos open source para o navegador.",
+        blurb: "Jogos open source para navegador, desktop e celular.",
       },
       id42studio: {
         blurb: "Software e engenharia de IA para empresas.",
@@ -159,7 +160,7 @@ export const ptBR: SiteContent = {
     },
   },
   footer: {
-    tagline: "Apps open source sem rastreamento.",
+    tagline: "Apps de código aberto sem rastreamento.",
     org: "Organização no GitHub",
     license: "Licença MIT",
     sistersLabel: "Estúdios irmãos",

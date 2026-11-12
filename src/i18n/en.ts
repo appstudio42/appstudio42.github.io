@@ -68,7 +68,7 @@ export const en: SiteContent = {
     subtitle:
       "Each line groups apps for the same audience. Family is first; Utilities and Productivity will follow.",
     availableLabel: "Available",
-    plannedLabel: "On the roadmap",
+    plannedLabel: "Planned",
     catalog: {
       family: {
         name: "Family",
@@ -120,6 +120,7 @@ export const en: SiteContent = {
             ctaRepo: "View repository",
             upcomingLabel: "Coming in 1.4.0",
             modesLabel: "Protection modes",
+            setupCaption: "Setup flow — PIN, apps, screen time, and kid mode",
           },
         },
         roadmapTitle: "Coming next in Family",
@@ -151,7 +152,7 @@ export const en: SiteContent = {
     subtitle: "App Studio 42 builds everyday apps. Sister studios cover games and B2B engineering.",
     items: {
       gamestudio42: {
-        blurb: "Open-source browser games.",
+        blurb: "Open-source games for browser, desktop, and mobile.",
       },
       id42studio: {
         blurb: "B2B software and AI engineering.",

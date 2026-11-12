@@ -80,33 +80,33 @@ const sectionId = locale === "en" ? "lines" : "linhas";
               </div>
 
               {app.screenshots && app.screenshots.length > 0 && (
-                <div style="margin-top: 1.75rem;">
-                  <div class="shot-rail">
-                    {app.screenshots.map((shot) => (
+                <div class="shot-grid" style="margin-top: 1.75rem;">
+                  {app.screenshots.map((shot) => (
+                    <figure class="shot-card">
                       <img
                         src={shot.src}
                         alt={appCopy.screenshots[shot.altKey] ?? ""}
-                        width="400"
-                        height="640"
-                        loading="lazy"
+                        width="1280"
+                        height="800"
+                        loading="eager"
                         decoding="async"
                       />
-                    ))}
-                  </div>
+                    </figure>
+                  ))}
                 </div>
               )}
 
               {app.setupMedia && (
-                <figure style="margin: 1.5rem 0 0; max-width: 520px;">
+                <figure class="setup-frame" style="margin: 1.75rem 0 0;">
                   <img
                     src={app.setupMedia}
-                    alt={appCopy.name}
+                    alt={appCopy.setupCaption ?? appCopy.name}
                     width="720"
-                    height="405"
-                    loading="lazy"
+                    height="450"
+                    loading="eager"
                     decoding="async"
-                    style="border-radius: 18px; border: 1px solid var(--color-line);"
                   />
+                  {appCopy.setupCaption && <figcaption>{appCopy.setupCaption}</figcaption>}
                 </figure>
               )}
 
