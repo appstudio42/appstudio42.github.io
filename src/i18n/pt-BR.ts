@@ -26,7 +26,7 @@ export const ptBR: SiteContent = {
   ],
   hero: {
     brand: "App Studio 42",
-    title: "Apps open source.\nSem rastreamento.\nFeitos para a vida real.",
+    title: "Apps open source.\nSem rastreamento.\nPara a vida real.",
     tagline:
       "Um estúdio open source de apps para o dia a dia — sem anúncios, sem analytics, com código que você pode auditar.",
     ctaPrimary: "Conhecer KidsHome",

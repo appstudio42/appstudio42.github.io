@@ -79,7 +79,7 @@ export const productLines: ProductLine[] = [
         },
         setupMedia: "/media/kidshome-setup.gif",
         screenshots: [
-          { src: "/screenshots/kidshome/01-kid-home.png", altKey: "kidHome" },
+          { src: "/screenshots/kidshome/hero-kid-home.png", altKey: "kidHome" },
           { src: "/screenshots/kidshome/05-screen-time-settings.png", altKey: "screenTime" },
           { src: "/screenshots/kidshome/07-allowed-apps.png", altKey: "allowedApps" },
           { src: "/screenshots/kidshome/03-pin-entry.png", altKey: "pin" },

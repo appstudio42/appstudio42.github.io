@@ -8,63 +8,48 @@ interface Props {
 const { locale } = Astro.props;
 const content = getContent(locale);
 const lines = content.hero.title.split("\n");
-const primaryHref = locale === "en" ? "#kidshome" : "#kidshome";
 ---
 
-<section class="hero shell" id={locale === "en" ? "home" : "inicio"} aria-labelledby="hero-title">
+<section class="hero" id={locale === "en" ? "home" : "inicio"} aria-labelledby="hero-title">
   <div class="atmosphere" aria-hidden="true">
     <div class="wash"></div>
     <div class="dot-grid"></div>
-    <div class="blob" style="width: 28rem; height: 28rem; left: -8%; top: 8%; background: var(--color-coral-soft);"
-    ></div>
-    <div
-      class="blob"
-      style="width: 22rem; height: 22rem; right: -4%; top: 18%; background: var(--color-sky-soft); animation-delay: -6s;"
-    ></div>
-    <div
-      class="blob"
-      style="width: 18rem; height: 18rem; right: 18%; bottom: 4%; background: var(--color-mint-soft); animation-delay: -12s;"
-    ></div>
+    <div class="blob blob--coral"></div>
+    <div class="blob blob--sky"></div>
   </div>
 
-  <div class="hero-copy">
-    <p class="hero-brand">{content.hero.brand}</p>
-    <h1 id="hero-title" class="display-1">
-      {lines.map((line, i) => (
-        <span class="hero-line" style={`--i: ${i}`}>
-          <span>{line}</span>
-        </span>
-      ))}
-    </h1>
-    <p class="lead" style="margin-top: 1.25rem; max-width: 38ch; --d: 3" data-reveal>
-      {content.hero.tagline}
-    </p>
-    <div class="hero-cta" style="--d: 4" data-reveal>
-      <a class="btn btn--primary" href={primaryHref}>{content.hero.ctaPrimary}</a>
-      <a class="btn btn--ghost" href={site.githubOrg} rel="noopener noreferrer">{content.hero.ctaSecondary}</a>
+  <div class="hero-grid shell">
+    <div class="hero-copy">
+      <p class="hero-brand">{content.hero.brand}</p>
+      <h1 id="hero-title" class="display-1">
+        {lines.map((line, i) => (
+          <span class="hero-line" style={`--i: ${i}`}>
+            <span>{line}</span>
+          </span>
+        ))}
+      </h1>
+      <p class="lead hero-lead">
+        {content.hero.tagline}
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn--primary" href="#kidshome">{content.hero.ctaPrimary}</a>
+        <a class="btn btn--ghost" href={site.githubOrg} rel="noopener noreferrer">{content.hero.ctaSecondary}</a>
+      </div>
     </div>
-  </div>
 
-  <div class="phone-stack" aria-hidden="true">
-    <div class="phone-frame phone-frame--back">
-      <img
-        src="/screenshots/kidshome/05-screen-time-settings.png"
-        alt=""
-        width="400"
-        height="640"
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
-    <div class="phone-frame">
-      <img
-        src="/screenshots/kidshome/01-kid-home.png"
-        alt=""
-        width="400"
-        height="640"
-        loading="lazy"
-        decoding="async"
-      />
+    <div class="hero-visual" aria-hidden="true">
+      <div class="device-glow"></div>
+      <div class="device-frame">
+        <img
+          src="/screenshots/kidshome/hero-kid-home.png"
+          alt=""
+          width="1280"
+          height="800"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </div>
     </div>
   </div>
 </section>
