@@ -154,7 +154,8 @@ for (const page of pages) {
   check(`${page.file}: product content`, () => {
     const html = read(page.file);
     assert(html.includes("KidsHome"), "KidsHome missing");
-    assert(html.includes("marcelsavegnago/KidsHome"), "KidsHome repo URL missing");
+    assert(html.includes("appstudio42/KidsHome"), "KidsHome repo URL missing");
+    assert(!html.includes("marcelsavegnago/KidsHome"), "old KidsHome owner URL still present");
     assert(html.includes("gamestudio42.github.io"), "Game Studio link missing");
     assert(html.includes("id42studio.github.io"), "ID42 Studio link missing");
     return "apps + sisters";

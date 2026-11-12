@@ -57,11 +57,8 @@ export interface ProductLine {
   roadmap: RoadmapItem[];
 }
 
-/**
- * KidsHome currently lives under marcelsavegnago; it will move to
- * github.com/appstudio42/KidsHome. Keep both URLs here only.
- */
-const KIDSHOME_REPO = "https://github.com/marcelsavegnago/KidsHome";
+/** Single source of truth for KidsHome repo / release URLs. */
+const KIDSHOME_REPO = "https://github.com/appstudio42/KidsHome";
 const KIDSHOME_DOWNLOAD = `${KIDSHOME_REPO}/releases/latest`;
 
 export const productLines: ProductLine[] = [
@@ -79,13 +76,12 @@ export const productLines: ProductLine[] = [
         },
         setupMedia: "/media/kidshome-setup.gif",
         screenshots: [
-          { src: "/screenshots/kidshome/hero-kid-home.png", altKey: "kidHome" },
-          { src: "/screenshots/kidshome/05-screen-time-settings.png", altKey: "screenTime" },
-          { src: "/screenshots/kidshome/07-allowed-apps.png", altKey: "allowedApps" },
-          { src: "/screenshots/kidshome/03-pin-entry.png", altKey: "pin" },
+          { src: "/screenshots/kidshome/01-kid-home.png", altKey: "kidHome" },
+          { src: "/screenshots/kidshome/09-schedules.png", altKey: "schedules" },
+          { src: "/screenshots/kidshome/10-app-limits.png", altKey: "appLimits" },
+          { src: "/screenshots/kidshome/12-weekly-report.png", altKey: "weeklyReport" },
         ],
-        featureKeys: ["pin", "timeRing", "allowedApps", "material"],
-        upcomingKeys: ["schedules", "perApp", "stars", "report"],
+        featureKeys: ["pin", "timeRing", "allowedApps", "schedules"],
         modeKeys: ["fire", "launcher", "kiosk"],
       },
     ],
