@@ -1,0 +1,26 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "./sections/Header.astro";
+import Hero from "./sections/Hero.astro";
+import Principles from "./sections/Principles.astro";
+import Lines from "./sections/Lines.astro";
+import Sisters from "./sections/Sisters.astro";
+import Footer from "./sections/Footer.astro";
+import type { Locale } from "../i18n";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<Base locale={locale}>
+  <Header locale={locale} />
+  <main id="main">
+    <Hero locale={locale} />
+    <Principles locale={locale} />
+    <Lines locale={locale} />
+    <Sisters locale={locale} />
+  </main>
+  <Footer locale={locale} />
+</Base>

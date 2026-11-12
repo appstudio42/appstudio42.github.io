@@ -1,0 +1,22 @@
+# App Studio 42
+
+> Open-source consumer apps with no tracking and no ads.
+
+- Site (pt-BR): https://appstudio42.github.io/
+- Site (en): https://appstudio42.github.io/en/
+- GitHub org: https://github.com/appstudio42
+- Sister studio (games): https://gamestudio42.github.io
+- Sister studio (B2B): https://id42studio.github.io
+
+## Product lines
+
+### Family
+Safe devices, screen time, routines, and kid-safe AI.
+
+- KidsHome (available): Android kids launcher for phones/tablets and Amazon Fire.
+  Repo: https://github.com/marcelsavegnago/KidsHome
+  Download: https://github.com/marcelsavegnago/KidsHome/releases/latest
+- Planned: KidsHome TV, kid-safe AI assistant, visual routines app, Fire tablet setup kit.
+
+## Principles
+Open source, privacy first (offline/local data, no analytics), free and auditable, distributed via GitHub Releases and soon F-Droid.

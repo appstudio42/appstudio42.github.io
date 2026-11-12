@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://appstudio42.github.io/sitemap-index.xml

@@ -1,0 +1,75 @@
+---
+interface Props {
+  href?: string;
+  compact?: boolean;
+}
+const { href = "/", compact = false } = Astro.props;
+const gradientId = `brand-grad-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<a href={href} class="brand" aria-label="App Studio 42">
+  <span class="brand-mark" aria-hidden="true">
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+      <defs>
+        <linearGradient id={gradientId} x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#E86A5B"></stop>
+          <stop offset="0.55" stop-color="#E8B84A"></stop>
+          <stop offset="1" stop-color="#5FA8A0"></stop>
+        </linearGradient>
+      </defs>
+      <rect width="32" height="32" rx="10" fill={`url(#${gradientId})`}></rect>
+      <circle cx="11" cy="13" r="2.2" fill="#FFF8F3"></circle>
+      <circle cx="21" cy="13" r="2.2" fill="#FFF8F3"></circle>
+      <path
+        d="M10 20c1.6 2.4 3.4 3.5 6 3.5S20.4 22.4 22 20"
+        stroke="#FFF8F3"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        fill="none"></path>
+    </svg>
+  </span>
+  <span class="brand-type">
+    <span class="brand-name">App Studio</span>
+    {!compact && <span class="brand-sub">42</span>}
+  </span>
+</a>
+
+<style>
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: none;
+  }
+
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    transition: transform 0.5s var(--ease-out-expo);
+  }
+
+  .brand:hover .brand-mark {
+    transform: rotate(-8deg) scale(1.05);
+  }
+
+  .brand-type {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 750;
+    letter-spacing: -0.03em;
+  }
+
+  .brand-sub {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--color-coral);
+    letter-spacing: -0.03em;
+  }
+</style>
