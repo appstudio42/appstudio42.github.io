@@ -1,0 +1,179 @@
+---
+import SectionHead from "../ui/SectionHead.astro";
+import { productLines } from "../../data/products";
+import { getContent, type Locale } from "../../i18n";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const content = getContent(locale);
+const sectionId = locale === "en" ? "lines" : "linhas";
+---
+
+<section class="section shell" id={sectionId} aria-labelledby="lines-title">
+  <SectionHead
+    index={content.lines.index}
+    eyebrow={content.lines.eyebrow}
+    title={content.lines.title}
+    subtitle={content.lines.subtitle}
+  />
+  <div id="lines-title" class="sr-only">{content.lines.title}</div>
+
+  {productLines.map((line) => {
+    const lineCopy = content.lines.catalog[line.id];
+    if (!lineCopy) return null;
+
+    return (
+      <div class="line-panel" data-reveal>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+          <span class="line-badge">{lineCopy.name}</span>
+          <span style="color: var(--color-muted); font-weight: 650;">{lineCopy.tagline}</span>
+        </div>
+        <p class="lead" style="margin-top: 1rem; max-width: 58ch;">{lineCopy.description}</p>
+
+        {line.apps.map((app) => {
+          const appCopy = lineCopy.apps[app.id];
+          if (!appCopy) return null;
+
+          return (
+            <article
+              class="app-block"
+              id={app.id}
+              style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-line);"
+            >
+              <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-bottom: 0.75rem;">
+                <h3 class="display-2" style="font-size: clamp(1.6rem, 3vw, 2.2rem);">{appCopy.name}</h3>
+                <span class="line-badge" style="background: var(--color-mint-soft); color: var(--color-mint);">
+                  {content.lines.availableLabel}
+                </span>
+              </div>
+              <p style="font-family: var(--font-display); font-weight: 650; color: var(--color-coral); margin-bottom: 0.75rem;">
+                {appCopy.tagline}
+              </p>
+              <p class="lead" style="max-width: 62ch;">{appCopy.description}</p>
+
+              {app.modeKeys && (
+                <div style="margin-top: 1.25rem;">
+                  <p style="font-size: 0.8125rem; font-weight: 750; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-subtle); margin-bottom: 0.55rem;">
+                    {appCopy.modesLabel}
+                  </p>
+                  <ul class="mode-row">
+                    {app.modeKeys.map((key) => (
+                      <li class="mode-chip">{appCopy.modes?.[key]}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div class="app-feature-grid" style="margin-top: 1.5rem;">
+                {app.featureKeys.map((key, index) => {
+                  const feature = appCopy.features[key];
+                  if (!feature) return null;
+                  return (
+                    <div class="app-feature" data-reveal style={`--d: ${index}`}>
+                      <h3>{feature.title}</h3>
+                      <p>{feature.text}</p>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {app.screenshots && app.screenshots.length > 0 && (
+                <div class="shot-grid" style="margin-top: 1.75rem;">
+                  {app.screenshots.map((shot) => (
+                    <figure class="shot-card">
+                      <img
+                        src={shot.src}
+                        alt={appCopy.screenshots[shot.altKey] ?? ""}
+                        width="1280"
+                        height="800"
+                        loading="eager"
+                        decoding="async"
+                      />
+                    </figure>
+                  ))}
+                </div>
+              )}
+
+              {app.setupMedia && (
+                <figure class="setup-frame" style="margin: 1.75rem 0 0;">
+                  <img
+                    src={app.setupMedia}
+                    alt={appCopy.setupCaption ?? appCopy.name}
+                    width="720"
+                    height="450"
+                    loading="eager"
+                    decoding="async"
+                  />
+                  {appCopy.setupCaption && <figcaption>{appCopy.setupCaption}</figcaption>}
+                </figure>
+              )}
+
+              {app.upcomingKeys && app.upcomingKeys.length > 0 && (
+                <div style="margin-top: 1.5rem;">
+                  <p style="font-size: 0.8125rem; font-weight: 750; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-subtle); margin-bottom: 0.55rem;">
+                    {appCopy.upcomingLabel}
+                  </p>
+                  <ul class="upcoming-row">
+                    {app.upcomingKeys.map((key) => (
+                      <li class="upcoming-chip">{appCopy.upcoming?.[key]}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem;">
+                {app.links.download && (
+                  <a class="btn btn--primary" href={app.links.download} rel="noopener noreferrer">
+                    {appCopy.ctaDownload}
+                  </a>
+                )}
+                <a class="btn btn--ghost" href={app.links.repo} rel="noopener noreferrer">
+                  {appCopy.ctaRepo}
+                </a>
+              </div>
+            </article>
+          );
+        })}
+
+        <div style="margin-top: 2.25rem; padding-top: 1.5rem; border-top: 1px solid var(--color-line);">
+          <h3 style="font-size: 1.35rem; margin-bottom: 0.35rem;">{lineCopy.roadmapTitle}</h3>
+          <p style="color: var(--color-muted); margin-bottom: 1.1rem;">{lineCopy.roadmapHint}</p>
+          <div class="roadmap-grid">
+            {line.roadmap.map((item, index) => {
+              const copy = lineCopy.roadmap[item.id];
+              if (!copy) return null;
+              return (
+                <article
+                  class="roadmap-card"
+                  data-accent={item.accent}
+                  data-reveal
+                  style={`--d: ${index}`}
+                >
+                  <span class="planned-tag">{content.lines.plannedLabel}</span>
+                  <h3>{copy.title}</h3>
+                  <p>{copy.text}</p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  })}
+</section>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

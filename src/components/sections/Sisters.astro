@@ -1,0 +1,51 @@
+---
+import SectionHead from "../ui/SectionHead.astro";
+import { site } from "../../data/site";
+import { getContent, type Locale } from "../../i18n";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const content = getContent(locale);
+const sectionId = locale === "en" ? "studios" : "estudios";
+---
+
+<section class="section shell" id={sectionId} aria-labelledby="sisters-title">
+  <SectionHead
+    index="03"
+    eyebrow={content.sisters.eyebrow}
+    title={content.sisters.title}
+    subtitle={content.sisters.subtitle}
+  />
+  <div id="sisters-title" class="sr-only">{content.sisters.title}</div>
+
+  <div class="sister-grid" style="margin-top: 2rem;">
+    {site.sisters.map((sister, index) => (
+      <a
+        class="sister-card"
+        href={sister.url}
+        rel="noopener noreferrer"
+        data-reveal
+        style={`--d: ${index}`}
+      >
+        <strong>{sister.name}</strong>
+        <span>{content.sisters.items[sister.id]?.blurb}</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

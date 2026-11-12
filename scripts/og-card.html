@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @font-face {
+        font-family: Outfit;
+        src: local("Outfit"), local("Arial");
+        font-weight: 100 900;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        width: 1200px;
+        height: 630px;
+        display: grid;
+        place-items: center;
+        background: #FFF8F3;
+        font-family: Outfit, system-ui, sans-serif;
+        color: #2A2430;
+        overflow: hidden;
+      }
+      .card {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        padding: 72px 80px;
+        background:
+          radial-gradient(50% 55% at 12% 20%, rgba(232,106,91,0.22), transparent 70%),
+          radial-gradient(45% 50% at 88% 18%, rgba(106,159,212,0.2), transparent 70%),
+          radial-gradient(40% 45% at 70% 85%, rgba(95,168,160,0.18), transparent 70%),
+          #FFF8F3;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 48px;
+      }
+      .mark {
+        width: 72px;
+        height: 72px;
+        border-radius: 22px;
+        background: linear-gradient(135deg, #E86A5B, #E8B84A 55%, #5FA8A0);
+        display: grid;
+        place-items: center;
+      }
+      .mark svg { width: 44px; height: 44px; }
+      .name {
+        font-size: 42px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+      .name span { color: #E86A5B; }
+      h1 {
+        font-size: 68px;
+        line-height: 1.02;
+        letter-spacing: -0.045em;
+        font-weight: 750;
+        max-width: 14ch;
+        white-space: pre-line;
+      }
+      .sub {
+        margin-top: 28px;
+        font-size: 28px;
+        color: #6B6170;
+        max-width: 28ch;
+        line-height: 1.35;
+      }
+      body.en h1 { font-size: 64px; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <circle cx="11" cy="13" r="2.2" fill="#FFF8F3"/>
+            <circle cx="21" cy="13" r="2.2" fill="#FFF8F3"/>
+            <path d="M10 20c1.6 2.4 3.4 3.5 6 3.5S20.4 22.4 22 20" stroke="#FFF8F3" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="name">App Studio <span>42</span></div>
+      </div>
+      <h1 id="title">Código aberto.\nSem rastreamento.\nPara a vida real.</h1>
+      <p class="sub" id="sub">Sem anúncios. Código auditável. Começando pela linha Família.</p>
+    </div>
+    <script>
+      const en = location.hash === "#en";
+      if (en) {
+        document.body.classList.add("en");
+        document.getElementById("title").textContent =
+          "Open-source apps.\nNo tracking.\nMade for real life.";
+        document.getElementById("sub").textContent =
+          "No ads. Auditable code. Starting with the Family line.";
+      }
+    </script>
+  </body>
+</html>

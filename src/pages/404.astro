@@ -1,0 +1,19 @@
+---
+import Base from "../layouts/Base.astro";
+import Brand from "../components/ui/Brand.astro";
+import { getContent } from "../i18n";
+
+const locale = "en";
+const content = getContent(locale);
+---
+
+<Base locale={locale} path="/404.html" title={`404 — ${content.brand.name}`} description={content.notFound.text} noindex>
+  <main id="main" class="shell" style="min-height: 100svh; display: grid; place-content: center; gap: 1.25rem; text-align: center;">
+    <Brand href="/" />
+    <h1 class="display-2">{content.notFound.title}</h1>
+    <p class="lead">{content.notFound.text}</p>
+    <div>
+      <a class="btn btn--primary" href="/">{content.notFound.cta}</a>
+    </div>
+  </main>
+</Base>

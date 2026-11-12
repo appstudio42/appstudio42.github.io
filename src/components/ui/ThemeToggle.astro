@@ -1,0 +1,69 @@
+---
+import type { Locale } from "../../i18n";
+import { getContent } from "../../i18n";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const content = getContent(locale);
+---
+
+<button
+  type="button"
+  class="icon-btn"
+  data-theme-toggle
+  data-label-light={content.a11y.themeToLight}
+  data-label-dark={content.a11y.themeToDark}
+  aria-label={content.a11y.themeToDark}
+>
+  <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+    <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle>
+    <path
+      d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"></path>
+  </svg>
+  <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+    <path
+      d="M19 13.5A7.5 7.5 0 1 1 10.5 5 6 6 0 0 0 19 13.5Z"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linejoin="round"></path>
+  </svg>
+</button>
+
+<style>
+  .icon-sun,
+  .icon-moon {
+    display: none;
+  }
+
+  :global([data-theme="dark"]) .icon-sun {
+    display: block;
+  }
+
+  :global([data-theme="light"]) .icon-moon,
+  :global(:root:not([data-theme])) .icon-moon {
+    display: block;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme="light"])) .icon-sun {
+      display: block;
+    }
+    :global(:root:not([data-theme="light"])) .icon-moon {
+      display: none;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    :global(:root:not([data-theme="dark"])) .icon-moon {
+      display: block;
+    }
+    :global(:root:not([data-theme="dark"])) .icon-sun {
+      display: none;
+    }
+  }
+</style>

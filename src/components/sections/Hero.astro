@@ -1,0 +1,55 @@
+---
+import { site } from "../../data/site";
+import { getContent, type Locale } from "../../i18n";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const content = getContent(locale);
+const lines = content.hero.title.split("\n");
+---
+
+<section class="hero" id={locale === "en" ? "home" : "inicio"} aria-labelledby="hero-title">
+  <div class="atmosphere" aria-hidden="true">
+    <div class="wash"></div>
+    <div class="dot-grid"></div>
+    <div class="blob blob--coral"></div>
+    <div class="blob blob--sky"></div>
+  </div>
+
+  <div class="hero-grid shell">
+    <div class="hero-copy">
+      <p class="hero-brand">{content.hero.brand}</p>
+      <h1 id="hero-title" class="display-1">
+        {lines.map((line, i) => (
+          <span class="hero-line" style={`--i: ${i}`}>
+            <span>{line}</span>
+          </span>
+        ))}
+      </h1>
+      <p class="lead hero-lead">
+        {content.hero.tagline}
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn--primary" href="#kidshome">{content.hero.ctaPrimary}</a>
+        <a class="btn btn--ghost" href={site.githubOrg} rel="noopener noreferrer">{content.hero.ctaSecondary}</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="device-glow"></div>
+      <div class="device-frame">
+        <img
+          src="/screenshots/kidshome/hero-kid-home.png"
+          alt=""
+          width="1280"
+          height="800"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </div>
+</section>
